@@ -23,10 +23,10 @@ const CreatePost = () => {
 
 
   const generateImage = async () => {
-    if(form.prompt) {
+    if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        const response = await fetch('http://localhost:5050/api/v1/dalle', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const CreatePost = () => {
 
         const data = await response.json();
 
-        setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}`})
+        setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` })
       } catch (error) {
         alert(error);
       } finally {
@@ -56,7 +56,7 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('http://localhost:8080/api/v1/post', {
+        const response = await fetch('http://localhost:5050/api/v1/post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -80,29 +80,29 @@ const CreatePost = () => {
 
 
   const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value})
+    setForm({ ...form, [e.target.name]: e.target.value })
   }
 
   const handleSurpriseMe = () => {
     const randomPrompt = getRandomPrompt(form.prompt);
-    setForm({...form, prompt: randomPrompt})
+    setForm({ ...form, prompt: randomPrompt })
   }
 
 
   return (
     <section className='max-w-7xl mx-auto'>
       <div>
-        <h1 className='font-extrabold text-[#222328] text-[32px]'>Create</h1>
-        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>Create imaginative and visually stunning images generated through DALL-E AI and share them with the community</p>
+        <h1 className='font-extrabold text-[#2c2d31] text-[32px]'>Create</h1>
+        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>Create unique, imaginative images with AI and share them with the community.</p>
       </div>
 
-      <form className='mt-16 max-w-3xl' onSubmit={handleSubmit} action="">
+      <form className='mt-12 max-w-3xl' onSubmit={handleSubmit} action="">
         <div className='flex flex-col gap-5'>
           <FormField
             labelName="Your name"
             type='text'
             name='name'
-            placeholder='Johnny Nameson'
+            placeholder='Person McPersonface'
             value={form.name}
             handleChange={handleChange}
           />
@@ -111,7 +111,7 @@ const CreatePost = () => {
             labelName="Prompt"
             type='text'
             name='prompt'
-            placeholder='Dracula walking down the street of New York City in the 1970s, black and white photography'
+            placeholder='abstract painting of a wizard playing the guitar'
             value={form.prompt}
             handleChange={handleChange}
             isSurpriseMe
@@ -139,8 +139,11 @@ const CreatePost = () => {
           <button
             type='button'
             onClick={generateImage}
-            className='text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+            className='w-full sm:w-auto rounded-full px-5 py-2.5 overflow-hidden group bg-green-600 relative hover:bg-gradient-to-r hover:from-green-600 hover:to-green-500 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out text-md duration-300'
           >
+            {/* <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span> */}
+
+
             {generatingImg ? 'Generating...' : 'Generate'}
           </button>
         </div>
@@ -149,7 +152,7 @@ const CreatePost = () => {
           <p className='mt-2 text-[#666e75] text-[14px]'>Once you have created the image you want, you can share it with others in the community</p>
           <button
             type='submit'
-            className='mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'>
+            className='mt-3 text-white bg-[#6469ff] hover:bg-[#5c61f7] font-medium rounded-full text-md w-full sm:w-auto px-5 py-2.5 text-center'>
             {loading ? 'Sharing...' : 'Share with the community'}</button>
 
         </div>
