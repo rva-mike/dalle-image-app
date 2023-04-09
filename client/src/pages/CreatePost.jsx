@@ -26,7 +26,7 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch('http://localhost:5050/api/v1/dalle', {
+        const response = await fetch('https://nrml-ai.onrender.com/api/v1/dalle', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('http://localhost:5050/api/v1/post', {
+        const response = await fetch('https://nrml-ai.onrender.com/api/v1/post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -94,6 +94,10 @@ const CreatePost = () => {
       <div>
         <h1 className='font-extrabold text-[#2c2d31] text-[32px]'>Create</h1>
         <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>Create unique, imaginative images with AI and share them with the community.</p>
+        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'><b>Notes:</b> Name is only required for posting. Most users fill out the prompt section and manually click the 'generate' button until finding a satisfactory image to share. Hitting enter, submit, go etc. will attempt to share a submission, and will not execute the 'generate' button </p>
+        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>The 'generate' button can be clicked multiple times for the same prompt, generating a new image each time. The 'surprise me' button will generate a random prompt.</p>
+        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>**newly shared images are added to the bottom of the 'showcase' page because they are loading slow at the moment. Hopefully, I can fix that and will have new shares added to the top.</p>
+        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>- mike</p>
       </div>
 
       <form className='mt-12 max-w-3xl' onSubmit={handleSubmit} action="">
@@ -118,13 +122,13 @@ const CreatePost = () => {
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className='relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center'>
+          <div className='relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:w-10/12 sm:h-10/12 w-full h-full p-3  flex justify-center items-center'>
             {form.photo ? (
               <img src={form.photo}
                 alt={form.prompt}
                 className='w-full h-full object-contain' />
             ) : (
-              <img src={preview} alt="preview" className='w-9/12 h-9/12 object-contain opacity-40' />
+              <img src={preview} alt="preview" className='w-6/12 h-10/12 sm:w-9/12 h-9/12 object-contain opacity-40' />
             )}
 
             {generatingImg && (
@@ -132,7 +136,9 @@ const CreatePost = () => {
                 <Loader />
               </div>
             )}
+
           </div>
+
         </div>
 
         <div className='mt-5 flex gap-5'>
@@ -162,3 +168,4 @@ const CreatePost = () => {
 }
 
 export default CreatePost
+

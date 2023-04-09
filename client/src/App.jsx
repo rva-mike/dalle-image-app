@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes, } from 'react-router-dom';
 
 import { Home, CreatePost } from './pages'
 import { sixr2, nrml, nxus, nrml2 } from './assets';
@@ -13,7 +13,7 @@ const App = () => {
           {/* <img src={nrml} alt="logo" className='w-32 object-contain' /> */}
           <img src={nrml2} alt="logo" className='w-32 object-contain' />
         </Link>
-
+          
         <Link to="/create-post" className='font-inter font-medium bg-[#6469ff] hover:bg-[#5c61f7] text-white px-4 py-2 rounded-full'>Create</Link>
       </header>
       <main className='sm:p-8 px-4 py-8 w-full bg-[#f9fafe] min-h-[calc(100vh-73px)]'>
