@@ -96,8 +96,6 @@ const CreatePost = () => {
         <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>Create unique, imaginative images with AI and share them with the community.</p>
         <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'><b>Notes:</b> Name is only required for posting. Most users fill out the prompt section and manually click the 'generate' button until finding a satisfactory image to share. Hitting enter, submit, go etc. will attempt to share a submission, and will not execute the 'generate' button </p>
         <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>The 'generate' button can be clicked multiple times for the same prompt, generating a new image each time. The 'surprise me' button will generate a random prompt.</p>
-        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>**newly shared images are added to the bottom of the 'showcase' page because they are loading slow at the moment. Hopefully, I can fix that and will have new shares added to the top.</p>
-        <p className='mt-2 text-[#666e75] text-[16px] max-w-[500px]'>- mike</p>
       </div>
 
       <form className='mt-12 max-w-3xl' onSubmit={handleSubmit} action="">
