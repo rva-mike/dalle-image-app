@@ -34,9 +34,12 @@ https://www.hostinger.com/
   
   Live Link : https://nrml-ai.com/
   
-  ## Screenshot
+  ## Screenshots
   
 ![desktopNrml](https://user-images.githubusercontent.com/105617274/231022739-1c4e9ac1-68b4-4e71-8574-2cadb1ed4e89.jpg)
+
+
+![screenshot-nrml1](https://user-images.githubusercontent.com/105617274/231023488-fd79b4f2-2a43-4bf3-9baa-5dac4337fc8d.jpg)
 
 
 
